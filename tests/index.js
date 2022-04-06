@@ -13,3 +13,12 @@ tpAPI.getUserCount().then((res) => {
 tpAPI.getChannelCount().then((res) => {
     console.log("Channel Count: " + res.response);
 });
+
+tpAPI.getBans().then((res) => {
+    const bans = JSON.stringify(res.response);
+    console.log("Bans: " + bans);
+});
+
+tpAPI.getBanCount().then((res) => {
+    console.log("Ban Count: " + res.response);
+});
