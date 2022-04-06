@@ -19,6 +19,11 @@ tpAPI.getBans().then((res) => {
     console.log("Bans: " + bans);
 });
 
+tpAPI.getBan("955879228044374070").then((res) => {
+    const ban = JSON.stringify(res.response);
+    console.log("Ban: " + ban);
+});
+
 tpAPI.getBanCount().then((res) => {
     console.log("Ban Count: " + res.response);
 });

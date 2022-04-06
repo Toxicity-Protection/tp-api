@@ -8,6 +8,10 @@ const tpAPIRequest = axios.create({
     }
 });
 
+/**
+ * 
+ * @returns {object} (Object containing guild count)
+ */
 async function getGuildCount() {
     try {
         const response = await tpAPIRequest.get('/guilds');
@@ -17,6 +21,10 @@ async function getGuildCount() {
     };
 };
 
+/**
+ * 
+ * @returns {object} (Object containing user count)
+ */
 async function getUserCount() {
     try {
         const response = await tpAPIRequest.get('/users');
@@ -26,6 +34,11 @@ async function getUserCount() {
     };
 };
 
+
+/**
+ * 
+ * @returns {object} (Object containing channel count)
+ */
 async function getChannelCount() {
     try {
         const response = await tpAPIRequest.get('/channels');
@@ -35,6 +48,10 @@ async function getChannelCount() {
     };
 };
 
+/**
+ * 
+ * @returns {object} (Object containing all bans)
+ */
 async function getBans() {
     try {
         const response = await tpAPIRequest.get('/bans');
@@ -44,6 +61,24 @@ async function getBans() {
     };
 };
 
+/**
+ * 
+ * @param {string} user (User ID to check ban status of)
+ * @returns {object} (Object containing ban status & info)
+ */
+async function getBan(user) {
+    try {
+        const response = await tpAPIRequest.get('/bans/' + user);
+        return response.data.response;
+    } catch (error) {
+        console.log(error);
+    };
+}
+
+/**
+ * 
+ * @returns {object} (Object containing ban count)
+ */
 async function getBanCount() {
     try {
         const response = await tpAPIRequest.get('/bancount');
@@ -58,5 +93,6 @@ module.exports = {
     getUserCount,
     getChannelCount,
     getBans,
+    getBan,
     getBanCount
 };
