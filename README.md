@@ -35,11 +35,37 @@ tpAPI.getBans().then((res) => {
     console.log("Bans: " + bans);
 });
 
-//Get ban count from TP
+//Get a user's ban status
+tpAPI.getBan("955879228044374070").then((res) => {
+    console.log("Ban: " + JSON.stringify(res.response));
+});
+
+//Get bans via reason
+tpAPI.getBansByReason("Spam").then((res) => {
+    console.log("Bans by reason: " + JSON.stringify(res.response));
+});
+
+//Get bans via date
+tpAPI.getBansByDate("2020-01-01").then((res) => {
+    console.log("Bans by date: " + JSON.stringify(res.response));
+});
+
+//Get bans via evidence
+tpAPI.getBansByEvidence("https://i.imgur.com/XqQZQ.jpg").then((res) => {
+    console.log("Bans by evidence: " + JSON.stringify(res.response));
+});
+
+//Get bans via severity
+tpAPI.getBansBySeverity("high").then((res) => {
+    console.log("Bans by severity: " + JSON.stringify(res.response));
+});
+
+//Get ban count 
 tpAPI.getBanCount().then((res) => {
     console.log("Ban Count: " + res.response);
 });
 ```
 
 ## Warning
-This is a beta version of the API wrapper. It is not recommended to use this API wrapper in production yet. Please use with caution.
+This is a beta version of the API wrapper. It is not recommended to use this API wrapper in production yet. Please use with caution. 
+(NOT USABLE AT ALL YET. API IS NOT READY FOR PUBLIC USE)
