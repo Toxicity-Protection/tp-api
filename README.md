@@ -66,6 +66,13 @@ tpAPI.getBanCount().then((res) => {
 });
 ```
 
+## Build package for testing
+```bash
+npm run build
+```
+Then you can see the built API in the `lib` folder!
+From there you can do all your tests in the `test` folder.
+
 ## Warning
 This is a beta version of the API wrapper. It is not recommended to use this API wrapper in production yet. Please use with caution. 
 (NOT USABLE AT ALL YET. API IS NOT READY FOR PUBLIC USE)
