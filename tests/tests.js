@@ -1,4 +1,4 @@
-const tpAPI = require('../src/main');
+const tpAPI = require('../lib/main');
 
 console.log("Starting TP API tests...");
 
