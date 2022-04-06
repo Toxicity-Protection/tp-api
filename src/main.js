@@ -10,7 +10,7 @@ const tpAPIRequest = axios.create({
 
 /**
  * 
- * @returns {object} (Object containing guild count)
+ * @returns {object} Object containing guild count
  */
 async function getGuildCount() {
     try {
@@ -23,7 +23,7 @@ async function getGuildCount() {
 
 /**
  * 
- * @returns {object} (Object containing user count)
+ * @returns {object} Object containing user count
  */
 async function getUserCount() {
     try {
@@ -37,7 +37,7 @@ async function getUserCount() {
 
 /**
  * 
- * @returns {object} (Object containing channel count)
+ * @returns {object} Object containing channel count
  */
 async function getChannelCount() {
     try {
@@ -50,7 +50,7 @@ async function getChannelCount() {
 
 /**
  * 
- * @returns {object} (Object containing all bans)
+ * @returns {object} Object containing all bans
  */
 async function getBans() {
     try {
@@ -63,21 +63,77 @@ async function getBans() {
 
 /**
  * 
- * @param {string} user (User ID to check ban status of)
- * @returns {object} (Object containing ban status & info)
+ * @param {string} user User ID to check ban status of
+ * @returns {object} Object containing ban status & info
  */
 async function getBan(user) {
     try {
-        const response = await tpAPIRequest.get('/bans/' + user);
+        const response = await tpAPIRequest.get('/bans/user/' + user);
         return response.data.response;
     } catch (error) {
         console.log(error);
     };
-}
+};
 
 /**
  * 
- * @returns {object} (Object containing ban count)
+ * @param {string} reason Reason for ban
+ * @returns {object} Object containing all bans with reason
+ */
+async function getBansByReason(reason) {
+    try {
+        const response = await tpAPIRequest.get('/bans/reason/' + reason);
+        return response.data.response;
+    } catch (error) {
+        console.log(error);
+    };
+};
+
+/**
+ * 
+ * @param {*} date Date to check bans for
+ * @returns {object} Object containing all bans for date
+ */
+async function getBansByDate(date) {
+    try {
+        const response = await tpAPIRequest.get('/bans/date/' + date);
+        return response.data.response;
+    } catch (error) {
+        console.log(error);
+    };
+};
+
+/**
+ * 
+ * @param {*} evidence Evidence to check bans for
+ * @returns {object} Object containing all bans with supplied evidence
+ */
+async function getBansByEvidence(evidence) {
+    try {
+        const response = await tpAPIRequest.get('/bans/evidence/' + evidence);
+        return response.data.response;
+    } catch (error) {
+        console.log(error);
+    };
+};
+
+/**
+ * 
+ * @param {*} severity Severity of bans to check for
+ * @returns {object} Object containing all bans with supplied severity
+ */
+async function getBansBySeverity(severity) {
+    try {
+        const response = await tpAPIRequest.get('/bans/severity/' + severity);
+        return response.data.response;
+    } catch (error) {
+        console.log(error);
+    };
+};
+
+/**
+ * 
+ * @returns {object} Object containing ban count
  */
 async function getBanCount() {
     try {
@@ -94,5 +150,9 @@ module.exports = {
     getChannelCount,
     getBans,
     getBan,
+    getBansByReason,
+    getBansByDate,
+    getBansByEvidence,
+    getBansBySeverity,
     getBanCount
 };
