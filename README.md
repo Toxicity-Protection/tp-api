@@ -28,6 +28,17 @@ tpAPI.getUserCount().then((res) => {
 tpAPI.getChannelCount().then((res) => {
     console.log("Channel Count: " + res.response);
 });
+
+//Get all bans from TP
+tpAPI.getBans().then((res) => {
+    const bans = JSON.stringify(res.response);
+    console.log("Bans: " + bans);
+});
+
+//Get ban count from TP
+tpAPI.getBanCount().then((res) => {
+    console.log("Ban Count: " + res.response);
+});
 ```
 
 ## Warning
